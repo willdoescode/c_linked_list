@@ -23,6 +23,21 @@ void append(struct Node *head, int value)
   }
 }
 
+static void reverse(struct Node **head)
+{
+  struct Node *prev = NULL;
+  struct Node *current = *head;
+  struct Node *next;
+  while (current != NULL)
+  {
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+  *head = prev;
+}
+
 void dealloc(struct Node *head)
 {
   struct Node *current = head;
@@ -67,6 +82,9 @@ int main()
 
   append(head, 5);
   append(head, 6);
+  append(head, 7);
+  append(head, 8);
+  reverse(&head);
 
   print(head);
 
