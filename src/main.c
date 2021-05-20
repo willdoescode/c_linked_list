@@ -8,8 +8,16 @@ int main()
   append(head, 6);
   append(head, 7);
   append(head, 8);
+
+  int x[] = {9, 10, 11, 12};
+  appendSlice(head, x, 4);
+
+  printf("Pre reverse:  ");
+  print(head);
+
   reverse(&head);
 
+  printf("Post reverse: ");
   print(head);
 
   dealloc(head);

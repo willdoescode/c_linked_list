@@ -18,12 +18,26 @@ void append(struct Node *head, int value)
   }
   else
   {
-    struct Node *n = malloc(sizeof(struct Node));
+    struct Node *n = (struct Node *)malloc(sizeof(struct Node));
     n->value = value;
     n->next = NULL;
 
     head->next = n;
   }
+}
+
+struct Node *newList(int value)
+{
+  struct Node *ret = (struct Node *)malloc(sizeof(struct Node));
+  ret->value = value;
+  ret->next = NULL;
+  return ret;
+}
+
+void appendSlice(struct Node *head, int arr[], int length)
+{
+  for (int i = 0; i < length; i++)
+    append(head, arr[i]);
 }
 
 static void reverse(struct Node **head)
@@ -50,14 +64,6 @@ void dealloc(struct Node *head)
     head = head->next;
     free(current);
   }
-}
-
-struct Node *newList(int value)
-{
-  struct Node *ret = (struct Node *)malloc(sizeof(struct Node));
-  ret->value = value;
-  ret->next = NULL;
-  return ret;
 }
 
 void print(struct Node *head)
