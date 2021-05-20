@@ -9,8 +9,7 @@ int main()
   append(head, 7);
   append(head, 8);
 
-  int x[] = {9, 10, 11, 12};
-  appendSlice(head, x, 4);
+  appendSlice(head, (int[]){9, 10, 11, 12}, 4);
 
   printf("Pre reverse:  ");
   print(head);
